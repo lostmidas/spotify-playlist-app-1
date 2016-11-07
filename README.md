@@ -1,2 +1,2 @@
 # Spotify Playlist App
-# App provides a better algorithm for providing multiple unique playlists
+# App generates a Spotify playlist by entering a song
