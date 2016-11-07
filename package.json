@@ -1,9 +1,11 @@
 {
-  "name": "node_project_1",
+  "name": "spotify-playlist-app-1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "DEBUG=http nodemon ./bin/www",
+    "build": "./node_modules/.bin/webpack --progress --colors",
+    "watch": "./node_modules/.bin/webpack --progress --colors --watch"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -12,6 +14,13 @@
     "ejs": "~2.4.1",
     "express": "~4.13.4",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "nodemon": "^1.11.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "serve-favicon": "~2.3.0",
+    "webpack": "^1.13.3"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^2.24.1"
   }
 }
