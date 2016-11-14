@@ -1,5 +1,6 @@
 var React = require('react');
 var R = React.DOM;
+var Request = require('request-promise');
 
 module.exports = React.createClass({
   render: function() {
@@ -26,21 +27,24 @@ module.exports = React.createClass({
     );
   },
   submit: function() {
-    var data = this.state.inputValue;
-    var request = new Request({
+    var data = {input: this.state.inputValue};
+
+    Request({
       method: 'POST',
       url: 'http://localhost:3000/submit',
-      body: data,
-      headers: new Headers({
-        'Content-Type': 'application-json'
-      })
-    });
-    request = JSON.stringify(request);
-    fetch(request);
-    // .then(function(res) {
-    //   // console.log('client side data -->', res);
-    // });
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(function(data){
+      console.log('client data -->', data);
+    })
+    .catch(function(err) {
+      console.log('client error -->', err);
+    })
   },
+
   updateInputData: function() {
     var value = this.refs.playlistInput.value;
     this.setState({inputValue: value});
