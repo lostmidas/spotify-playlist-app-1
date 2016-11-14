@@ -11,10 +11,12 @@ var webpackConfig = require('./webpack.config.js');
 
 var routes = require('./routes/index');
 
+// express app is instantiated
 var app = express();
 
 var compiler = webpack(webpackConfig);
 
+// runs immediate updates to the client
 var middleware = webpackDevMiddleware(compiler, {
   publicPath: webpackConfig.output.publicPath,
   hot: true
@@ -25,7 +27,7 @@ app.use(webpackHotMiddleware(compiler));
 
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,5 +60,5 @@ app.use(function(err, req, res, next) {
   res.send(err);
 });
 
-
+// node module export to bin/www
 module.exports = app;

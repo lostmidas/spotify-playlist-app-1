@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+// this line imports the app and runs the server
+var app = require('../server');
 var debug = require('debug')('http');
 var http = require('http');
 

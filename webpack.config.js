@@ -6,7 +6,7 @@ var webpackConfig = {
 
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'src/js/component-1.js')
+    path.resolve(__dirname, 'src/js/main.js')
   ],
 
   output: {
