@@ -15,11 +15,18 @@ var webpackConfig = {
   },
 
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      loader: 'react-hot-loader/webpack'
-    }]
+    loaders: [
+      { test: /\.js?$/, loader: 'react-hot-loader/webpack' },
+      { test: /\.json?$/, loader: 'json-loader' }
+    ]
   },
+
+  node: {
+  console: true,
+  fs: 'empty',
+  net: 'empty',
+  tls: 'empty'
+},
 
   plugins: [
     new HtmlWebpackPlugin({
