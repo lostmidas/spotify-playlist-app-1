@@ -14,6 +14,9 @@ var routes = require('./routes/index');
 // express app is instantiated
 var app = express();
 
+// database instantiated
+require('./database.js');
+
 var compiler = webpack(webpackConfig);
 
 // runs immediate updates to the client
@@ -24,7 +27,6 @@ var middleware = webpackDevMiddleware(compiler, {
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
-
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
