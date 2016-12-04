@@ -1,6 +1,6 @@
 var React = require('react');
-var R = React.DOM;
 var Request = require('request-promise');
+var R = React.DOM;
 
 module.exports = React.createClass({
   render: function() {
@@ -38,11 +38,13 @@ module.exports = React.createClass({
       }
     })
     .then(function(data){
+      /* eslint-disable no-console */
       console.log('client data -->', data);
     })
     .catch(function(err) {
       console.log('client error -->', err);
-    })
+      /* eslint-enable no-console */
+    });
   },
 
   updateInputData: function() {

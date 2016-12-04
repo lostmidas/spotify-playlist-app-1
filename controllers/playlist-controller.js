@@ -5,7 +5,7 @@
 function handleInput(req, res) {
   console.log('server side -->', req.body);
   res.send(req.body)
-}
+};
 
 
 
@@ -22,4 +22,4 @@ function handleInput(req, res) {
 
 module.exports = {
   handleInput: handleInput
-}
+};
