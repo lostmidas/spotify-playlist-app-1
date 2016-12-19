@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "mongod & DEBUG=http node ./bin/www",
+    "start": "DEBUG=http node ./bin/www",
     "nodemon": "mongod & DEBUG=http nodemon ./bin/www",
     "build": "webpack --progress --colors --display-error-details",
     "lint": "eslint src/js/**"
@@ -15,6 +15,7 @@
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
     "express": "~4.13.4",
     "mongoose": "^4.7.1",
     "morgan": "~1.7.0",
