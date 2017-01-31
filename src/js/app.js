@@ -1,6 +1,7 @@
 var React = require('react');
-var songInput = React.createFactory(require('./song-input.js'));
-var playlistDisplay = React.createFactory(require('./playlist-display.js'));
+var songInput = React.createFactory(require('./views/song-input.js'));
+var playlistDisplay = React.createFactory(require('./views/playlist-display.js'));
+var login = React.createFactory(require('./views/login'));
 var R = React.DOM;
 
 module.exports = React.createClass({
@@ -9,7 +10,8 @@ module.exports = React.createClass({
       null,
       this.props.title,
       songInput(),
-      playlistDisplay()
+      playlistDisplay(),
+      login()
     );
   }
 });

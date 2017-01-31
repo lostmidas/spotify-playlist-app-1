@@ -1,11 +1,6 @@
 var PlayListController = require('../controllers/playlist-controller.js');
 var UserController = require('../controllers/users-controller.js');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index.html')
-// });
-
 module.exports = function(app) {
   // POST input data
   app.post('/submit', PlayListController.handleInput);
@@ -24,12 +19,12 @@ module.exports = function(app) {
     var redirectUri = 'redirect_uri=' + process.env.REDIERCT_URI;
     var baseUri = 'https://accounts.spotify.com/authorize?';
     var url = baseUri + clientId + '&' + responseType + '&' + redirectUri;
-    res.redirect(url);
+    res.send(url);
   });
 
   app.get('/success', function(req, res, next) {
     console.log("query -->", req.query);
-    res.send('redirect success');
+    res.redirect('/');
   });
 };
 

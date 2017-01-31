@@ -8,29 +8,28 @@ var bodyParser = require('body-parser');
 // hidden keys file
 require('dotenv').load();
 
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfig = require('./webpack.config.js');
-
-// var routes = require('./routes/index');
-
 // express app is instantiated
 var app = express();
 
 // database instantiated
 require('./database.js');
 
-var compiler = webpack(webpackConfig);
+if(process.env.NODE_ENV === 'development') {
+  var webpack = require('webpack');
+  var webpackDevMiddleware = require('webpack-dev-middleware');
+  var webpackHotMiddleware = require('webpack-hot-middleware');
+  var webpackConfig = require('./webpack.config.js');
+  var compiler = webpack(webpackConfig);
 
-// runs immediate updates to the client
-var middleware = webpackDevMiddleware(compiler, {
-  publicPath: webpackConfig.output.publicPath,
-  hot: true
-});
+  // runs immediate updates to the client
+  var middleware = webpackDevMiddleware(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    hot: true
+  });
 
-app.use(middleware);
-app.use(webpackHotMiddleware(compiler));
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+}
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -38,6 +37,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/', bodyParser.json());
 require('./routes/index')(app);
