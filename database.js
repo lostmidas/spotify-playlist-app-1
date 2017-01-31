@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbUri = 'mongodb://localhost/spotify-playlist-app';
+var dbUri = process.env.MONGO_URI;
 
 mongoose.connect(dbUri);
 

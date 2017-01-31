@@ -8,10 +8,10 @@ module.exports = React.createClass({
   render: function() {
     return R.div(
       null,
+      login(),
       this.props.title,
       songInput(),
-      playlistDisplay(),
-      login()
+      playlistDisplay()
     );
   }
 });
