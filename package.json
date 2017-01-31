@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=http node ./bin/www",
+    "start-production": "DEBUG=http node ./bin/www",
+    "start-dev": "NODE_ENV=development DEBUG=http node ./bin/www",
     "nodemon": "mongod & DEBUG=http nodemon ./bin/www",
     "build": "webpack --progress --colors --display-error-details",
     "lint": "eslint src/js/**"
