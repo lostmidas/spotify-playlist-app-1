@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   // GET auth
   app.get('/auth', function(req, res, next){
-    // var clientSecret = process.env.CLIENT_SECRET;
+    var clientSecret = process.env.CLIENT_SECRET;
     var clientId = 'client_id=' + process.env.CLIENT_ID;
     var responseType = 'response_type=code';
     var redirectUri = 'redirect_uri=' + process.env.REDIERCT_URI;

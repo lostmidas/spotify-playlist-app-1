@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var App = React.createFactory(require('./app.js'));
 
 ReactDOM.render(
-  App({title: 'bitches'}),
+  App({title: ''}),
   document.getElementById('entry-point')
 );
 

@@ -6,24 +6,25 @@ module.exports = React.createClass({
   render: function() {
     return R.div(
       null,
-      R.h1(null, 'Welcome to SpinSpin'),
+      R.div(null, 'SpinSpin'),
       R.button({
+        type: 'submit',
         onClick: this.login
-      }, 'Login')
+      }, 'Login to Spotify')
     );
   },
 
   login: function() {
     rp({
       url: 'http://localhost:3000/auth',
-      method: 'GET',
+      method: 'GET'
     })
-      .then(function(data) {
-        console.log(data);
-        window.location = data;
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
+    .then(function(data) {
+      console.log(data);
+      window.location = data;
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
   }
 });
